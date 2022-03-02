@@ -3,8 +3,7 @@ package com.ceiba.hospedaje.controlador;
 import com.ceiba.ApplicationMock;
 import com.ceiba.hospedaje.comando.ComandoHospedaje;
 import com.ceiba.hospedaje.testdatabuilder.ComandoHospedajeTestDataBuilder;
-import com.ceiba.usuario.comando.ComandoUsuario;
-import com.ceiba.usuario.controlador.ComandoControladorUsuario;
+import com.ceiba.hospedajes.controlador.ComandoControladorHospedaje;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,10 +21,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(ComandoControladorUsuario.class)
+@WebMvcTest(ComandoControladorHospedaje.class)
 @ContextConfiguration(classes= ApplicationMock.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-class ComandoControladorUsuarioTest {
+class ComandoControladorHospedajeTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -35,7 +34,7 @@ class ComandoControladorUsuarioTest {
 
     @Test
     @DisplayName("Deberia crear un hospedaje")
-    void deberiaCrearUnUsuario() throws Exception{
+    void deberiaCrearUnHospedaje() throws Exception{
         // arrange
         ComandoHospedaje comandoHospedaje = new ComandoHospedajeTestDataBuilder().build();
         // act - assert
@@ -48,7 +47,7 @@ class ComandoControladorUsuarioTest {
 
     @Test
     @DisplayName("Deberia actualizar un hospedaje")
-    void deberiaActualizarUnUsuario() throws Exception{
+    void deberiaActualizarUnHospedaje() throws Exception{
         // arrange
         Long id = 1L;
         ComandoHospedaje hospedaje = new ComandoHospedajeTestDataBuilder().build();
@@ -61,7 +60,7 @@ class ComandoControladorUsuarioTest {
 
     @Test
     @DisplayName("Deberia eliminar un hospedaje")
-    void deberiaEliminarUnUsuario() throws Exception {
+    void deberiaEliminarUnHospedaje() throws Exception {
         // arrange
         Long id = 1L;
         // act - assert

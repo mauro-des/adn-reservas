@@ -8,14 +8,14 @@ public class HospedajeTestDataBuilder {
 
     private Long id;
     private String nombre;
-    private int cantidadPersonas;
+    private int capacidadPersonas;
     private String estado;
     private LocalDateTime fecha;
 
     public HospedajeTestDataBuilder() {
         id = 1L;
         nombre = "HospedajePrueba";
-        cantidadPersonas = 0;
+        capacidadPersonas = 1;
         estado = "ACT";
         fecha = LocalDateTime.now();
     }
@@ -35,8 +35,8 @@ public class HospedajeTestDataBuilder {
         return  this;
     }
 
-    public HospedajeTestDataBuilder conCantidadPersonas(int cantidadPersonas){
-        this.cantidadPersonas = cantidadPersonas;
+    public HospedajeTestDataBuilder conCapacidadPersonas(int capacidadPersonas){
+        this.capacidadPersonas = capacidadPersonas;
         return this;
     }
 
@@ -46,6 +46,6 @@ public class HospedajeTestDataBuilder {
     }
 
     public Hospedaje build() {
-        return new Hospedaje(id,nombre, cantidadPersonas, estado, fecha);
+        return new Hospedaje(id,nombre, capacidadPersonas, estado, fecha);
     }
 }

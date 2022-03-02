@@ -16,7 +16,7 @@ public class ComandoHospedajeTestDataBuilder {
 
     public ComandoHospedajeTestDataBuilder() {
         nombre = UUID.randomUUID().toString().substring(0,19);
-        cantidadPersonas = 0;
+        cantidadPersonas = 1;
         estado = "ACT";
         fecha = LocalDateTime.now();
     }
