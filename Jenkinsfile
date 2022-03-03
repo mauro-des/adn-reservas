@@ -50,10 +50,12 @@ pipeline {
 				withSonarQubeEnv('Sonar') {
 					sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
 				}
-				
+				/*
+				echo '------------>QualityGates<------------'
 				sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:reserva.hospedajes-mauricio.moreno', 
 				sonarName:'CeibaADN-ReservaHospedajes(mauricio.moreno)', 
 				sonarPathProperties:'./sonar-project.properties')
+				*/
 			}
 		}
 		/*
