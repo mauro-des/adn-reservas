@@ -59,7 +59,7 @@ pipeline {
 			    echo '------------>Análisis de código estático<------------'
 				sonarqubeMasQualityGatesP(
 				sonarKey:'co.com.ceiba.adn:reserva.hospedajes-mauricio.moreno',
-				sonarName:'CeibaADN-ReservaHospedajes\(mauricio.moreno\)',
+				sonarName:'"CeibaADN-ReservaHospedajes(mauricio.moreno)"',
 				sonarPathProperties:'./sonar-project.properties')
 			}
 		} 
