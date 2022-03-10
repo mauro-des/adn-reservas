@@ -11,4 +11,12 @@ public interface DaoHospedaje {
      * @return lista de hospedajes
      */
     List<DtoHospedaje> listar();
+
+
+    /**
+     * Consulta un hospedaje por su id
+     * @param idHospedaje
+     * @return hospedaje
+     */
+    DtoHospedaje consultarPorId(Long idHospedaje);
 }

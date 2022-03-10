@@ -1,6 +1,8 @@
 package com.ceiba.hospedaje.testdatabuilder;
 
+import com.ceiba.Activo;
 import com.ceiba.hospedaje.comando.ComandoHospedaje;
+import com.ceiba.hospedaje.modelo.entidad.EstadoHospedaje;
 //import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.time.LocalDateTime;
@@ -11,14 +13,21 @@ public class ComandoHospedajeTestDataBuilder {
     private Long id;
     private String nombre;
     private int cantidadPersonas;
-    private String estado;
+    private EstadoHospedaje estado;
     private LocalDateTime fecha;
+    private Double valorNoche;
+    private Double valorRecargoFinSemana;
+    private Activo activo;
 
     public ComandoHospedajeTestDataBuilder() {
         nombre = UUID.randomUUID().toString().substring(0,19);
-        cantidadPersonas = 1;
-        estado = "ACT";
+        cantidadPersonas = 4;
+        estado = EstadoHospedaje.DISP;
         fecha = LocalDateTime.now();
+        activo = Activo.SI;
+        valorNoche = 40000.0;
+        valorRecargoFinSemana = 5000.0;
+
     }
 
     public ComandoHospedajeTestDataBuilder conNombre(String nombre) {
@@ -26,7 +35,7 @@ public class ComandoHospedajeTestDataBuilder {
         return this;
     }
 
-    public ComandoHospedajeTestDataBuilder conEstado(String estado){
+    public ComandoHospedajeTestDataBuilder conEstado(EstadoHospedaje estado){
         this.estado = estado;
         return  this;
     }
@@ -36,7 +45,23 @@ public class ComandoHospedajeTestDataBuilder {
         return this;
     }
 
+    public ComandoHospedajeTestDataBuilder conValorNoche(Double valorNoche){
+        this.valorNoche = valorNoche;
+        return this;
+    }
+
+
+    public ComandoHospedajeTestDataBuilder conActivo(Activo activo){
+        this.activo = activo;
+        return this;
+    }
+
+    public ComandoHospedajeTestDataBuilder conValorRecargoFinSemana(Double valorRecargoFinSemana){
+        this.valorRecargoFinSemana = valorRecargoFinSemana;
+        return this;
+    }
+
     public ComandoHospedaje build() {
-        return new ComandoHospedaje(id, nombre, cantidadPersonas, estado);
+        return new ComandoHospedaje(id, nombre, cantidadPersonas, estado, valorNoche, activo, valorRecargoFinSemana);
     }
 }

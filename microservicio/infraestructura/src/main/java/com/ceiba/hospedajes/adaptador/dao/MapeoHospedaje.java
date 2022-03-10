@@ -19,8 +19,11 @@ public class MapeoHospedaje implements RowMapper<DtoHospedaje>, MapperResult {
         String estado = resultSet.getString("estado");
         int capacidad = resultSet.getInt("capacidad_personas");
         LocalDateTime fecha = extraerLocalDateTime(resultSet, "fecha_creacion");
+        Double valorNohce = resultSet.getDouble("valor_noche");
+        String activo = resultSet.getString("activo");
+        Double valorRecargoFinSemana = resultSet.getDouble("valor_recargo_fin_semana");
 
-        return new DtoHospedaje(id, nombre, capacidad, estado, fecha);
+        return new DtoHospedaje(id, nombre, capacidad, estado, fecha, valorNohce, activo, valorRecargoFinSemana);
     }
 
 }

@@ -2,7 +2,10 @@ select
     id,
     nombre,
     capacidad_personas,
+    activo,
     estado,
+    valor_noche,
+    valor_recargo_fin_semana,
     fecha_creacion
 from
     hospedaje

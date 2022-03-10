@@ -34,5 +34,4 @@ public interface RepositorioHospedaje {
      * @return si existe o no
      */
     boolean existePorId(Long id);
-
 }

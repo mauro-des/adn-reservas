@@ -1,5 +1,7 @@
 package com.ceiba.hospedaje.comando;
 
+import com.ceiba.Activo;
+import com.ceiba.hospedaje.modelo.entidad.EstadoHospedaje;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +17,9 @@ public class ComandoHospedaje {
     private Long id;
     private String nombre;
     private int capacidadPersonas;
-    private String estado; //TODO Validar el uso de un enum
+    private EstadoHospedaje estado; //TODO Validar el uso de un enum
+    private Double valorNoche;
+    private Activo activo;
+    private Double valorRecargoFinSemana;
+
 }

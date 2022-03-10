@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 public class ServicioEliminarHospedajeTest {
 
     @Test
-    @DisplayName("Deberia eliminar el hospedaje llamando al repositorio")
+    @DisplayName("Debería eliminar el hospedaje llamando al repositorio")
     void deberiaEliminarElHospedajeLlamandoAlRepositorio() {
         RepositorioHospedaje repositorioHospedaje = Mockito.mock(RepositorioHospedaje.class);
         ServicioEliminarHospedaje servicioEliminarHospedaje = new ServicioEliminarHospedaje(repositorioHospedaje);

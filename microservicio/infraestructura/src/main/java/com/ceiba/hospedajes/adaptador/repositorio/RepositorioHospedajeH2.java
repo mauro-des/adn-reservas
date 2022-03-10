@@ -27,6 +27,9 @@ public class RepositorioHospedajeH2 implements RepositorioHospedaje {
     @SqlStatement(namespace= "hospedaje", value="existePorId")
     private static String sqlExistePorId;
 
+    @SqlStatement(namespace= "hospedaje", value="listar")
+    private static String sqlConsultarPorId;
+
     public RepositorioHospedajeH2(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -64,4 +67,5 @@ public class RepositorioHospedajeH2 implements RepositorioHospedaje {
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
     }
+
 }

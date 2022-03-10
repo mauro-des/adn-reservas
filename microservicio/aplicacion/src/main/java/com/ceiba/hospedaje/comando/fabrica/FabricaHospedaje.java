@@ -16,7 +16,10 @@ public class FabricaHospedaje {
                 comandoHospedaje.getNombre(),
                 comandoHospedaje.getCapacidadPersonas(),
                 comandoHospedaje.getEstado(),
-                LocalDateTime.now()
+                LocalDateTime.now(),
+                comandoHospedaje.getValorNoche(),
+                comandoHospedaje.getActivo(),
+                comandoHospedaje.getValorRecargoFinSemana()
         );
     }
 

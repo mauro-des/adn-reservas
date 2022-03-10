@@ -1,6 +1,7 @@
 package com.ceiba.hospedajes.adaptador.dao;
 
 import com.ceiba.hospedaje.modelo.dto.DtoHospedaje;
+import com.ceiba.hospedaje.modelo.entidad.Hospedaje;
 import com.ceiba.hospedaje.puerto.dao.DaoHospedaje;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
@@ -22,6 +23,11 @@ public class DaoHospedajeH2 implements DaoHospedaje {
 
     @Override
     public List<DtoHospedaje> listar() {
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoHospedaje());
+        return customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoHospedaje());
+    }
+
+    @Override
+    public DtoHospedaje consultarPorId(Long idHospedaje) {
+        return customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new MapeoHospedaje()).get(0);
     }
 }
