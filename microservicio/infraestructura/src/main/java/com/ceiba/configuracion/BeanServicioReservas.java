@@ -5,6 +5,7 @@ import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.ServicioActualizarReserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.reserva.servicio.ServicioEliminarReserva;
+import com.ceiba.reserva.servicio.ServicioPagarReserva;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,6 +26,10 @@ public class BeanServicioReservas {
     public ServicioActualizarReserva servicioActualizarReserva(RepositorioReserva repositorioReserva) {
         return new ServicioActualizarReserva(repositorioReserva);
     }
-	
+
+    @Bean
+    public ServicioPagarReserva servicioPagarReserva(RepositorioReserva repositorioReserva) {
+        return new ServicioPagarReserva(repositorioReserva);
+    }
 
 }

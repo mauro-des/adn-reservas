@@ -24,9 +24,20 @@ public interface RepositorioReserva {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe una reserva por su id
+     * Permite validar si existe una reserva
      * @return si existe o no
      */
     boolean existe(Long id);
 
+    /**
+     * Actualiza el estado de una reserva a Pagado
+     * @param reserva
+     */
+    void pagar(Reserva reserva);
+
+    /**
+     * Permite validar si existe una reserva para el hospedaje especificado
+     * @return si existe o no
+     */
+    boolean existePorHospedaje(Long idHospedaje);
 }

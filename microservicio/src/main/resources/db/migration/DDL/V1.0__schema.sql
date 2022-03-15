@@ -32,4 +32,43 @@ create table reserva(
     activo varchar(2) not null,
     estado varchar(3) not null,
     primary key(id)
-)
+);
+
+
+-- DATOS SEMILLA
+
+insert into hospedaje(
+    nombre,
+    capacidad_personas,
+    activo,
+    estado,
+    fecha_creacion,
+    valor_noche,
+    valor_recargo_fin_semana
+) values ('HOSPEDAJE 1',4,'SI','DIS', now(), 40000, 50000);
+
+insert into reserva (
+    id_hospedaje,
+    nombre_cliente,
+    identificacion_cliente,
+    cantidad_personas,
+    fecha_inicio,
+    fecha_fin,
+    cantidad_dias,
+    fecha_creacion,
+    valor_reserva,
+    activo,
+    estado
+) values (
+    999,
+    'Mauricio',
+    '1088123',
+    4,
+    now(),
+    now(),
+    1,
+    now(),
+    40000,
+    'SI',
+    'PEN'
+);

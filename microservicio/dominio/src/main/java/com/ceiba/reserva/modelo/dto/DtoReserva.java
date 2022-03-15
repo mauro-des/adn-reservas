@@ -20,5 +20,5 @@ public class DtoReserva {
     private long cantidadDias;
     private String activo;
     private String estado;
-    private Double valor;
+    private Double valorReserva;
 }

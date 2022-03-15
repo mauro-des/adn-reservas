@@ -23,11 +23,16 @@ public class RepositorioReservaH2 implements RepositorioReserva {
     @SqlStatement(namespace= "reserva", value="eliminar")
     private static String sqlEliminar;
 
-//    @SqlStatement(namespace= "reserva", value="existe")
-//    private static String sqlExiste;
 
     @SqlStatement(namespace= "reserva", value="existePorId")
     private static String sqlExistePorId;
+
+    @SqlStatement(namespace= "reserva", value="existePorHospedaje")
+    private static String sqlExistePorHospedaje;
+
+
+    @SqlStatement(namespace= "reserva", value="pagar")
+    private static String sqlPagar;
 
     public RepositorioReservaH2(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -46,14 +51,6 @@ public class RepositorioReservaH2 implements RepositorioReserva {
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
 
-//    @Override
-//    public boolean existe(String nombre) {
-//        MapSqlParameterSource paramSource = new MapSqlParameterSource();
-//        paramSource.addValue("nombre", nombre);
-//
-//        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
-//    }
-
     @Override
     public void actualizar(Reserva reserva) {
         this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
@@ -65,5 +62,18 @@ public class RepositorioReservaH2 implements RepositorioReserva {
         paramSource.addValue("id", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
+    }
+
+    @Override
+    public void pagar(Reserva reserva) {
+        this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlPagar);
+    }
+
+    @Override
+    public boolean existePorHospedaje(Long idHospedaje) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idHospedaje", idHospedaje);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorHospedaje,paramSource, Boolean.class);
     }
 }

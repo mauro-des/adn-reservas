@@ -140,6 +140,36 @@ public class ReservaTest {
                 ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de creación");
     }
 
+    @Test
+    @DisplayName("Debería fallar con fecha inicio mayor a fecha fin")
+    void deberiaFallarConFechaInicioMayorAFechaFin() {
+
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().
+                conFechaInicio(LocalDateTime.now().plusDays(2)).
+                conFechaFin(LocalDateTime.now());
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "La fecha inicial debe ser menor a la fecha final");
+    }
+
+    @Test
+    @DisplayName("Debería fallar con fecha inicio igual a fecha fin")
+    void deberiaFallarConFechaInicioIgualAFechaFin() {
+
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().
+                conFechaInicio(LocalDateTime.now()).
+                conFechaFin(LocalDateTime.now());
+        //act-assert
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, "La fecha inicial debe ser menor a la fecha final");
+    }
+
 
     @Test
     @DisplayName("Debería fallar sin hospedaje")

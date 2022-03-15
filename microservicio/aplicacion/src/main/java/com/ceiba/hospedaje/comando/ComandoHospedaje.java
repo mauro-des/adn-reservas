@@ -2,10 +2,7 @@ package com.ceiba.hospedaje.comando;
 
 import com.ceiba.Activo;
 import com.ceiba.hospedaje.modelo.entidad.EstadoHospedaje;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ComandoHospedaje {
     private Long id;
     private String nombre;

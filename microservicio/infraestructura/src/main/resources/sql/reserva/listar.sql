@@ -13,5 +13,3 @@ select
     estado
 from
     reserva
-where
-    activo = 'SI'

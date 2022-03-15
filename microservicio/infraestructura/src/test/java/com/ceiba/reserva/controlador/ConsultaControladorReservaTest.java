@@ -35,10 +35,10 @@ class ConsultaControladorReservaTest {
         mocMvc.perform(get("/reservas")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].nombreCliente", is("Cliente Reserva")))
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].nombreCliente", is("Mauricio")))
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].identificacionCliente", is("123456")));
+                .andExpect(jsonPath("$[0].identificacionCliente", is("1088123")));
     }
 
 

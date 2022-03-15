@@ -21,7 +21,7 @@ public class HospedajeTestDataBuilder {
         id = 1L;
         nombre = "HospedajePrueba";
         capacidadPersonas = 1;
-        estado = EstadoHospedaje.DISP;
+        estado = EstadoHospedaje.DIS;
         fecha = LocalDateTime.now();
         valorNoche = 10000.0;
         activo = Activo.SI;

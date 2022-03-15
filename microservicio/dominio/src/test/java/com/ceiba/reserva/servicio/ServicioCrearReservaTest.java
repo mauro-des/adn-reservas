@@ -2,7 +2,6 @@ package com.ceiba.reserva.servicio;
 
 import com.ceiba.Activo;
 import com.ceiba.BasePrueba;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.hospedaje.modelo.dto.DtoHospedaje;
 import com.ceiba.hospedaje.modelo.entidad.EstadoHospedaje;
@@ -67,7 +66,7 @@ class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
 
         DaoHospedaje daoHospedaje = Mockito.mock(DaoHospedaje.class);
-        Mockito.when(daoHospedaje.consultarPorId(Mockito.anyLong())).thenReturn(new DtoHospedaje(1L, "Hospedaje 1", 4, EstadoHospedaje.DISP.name(), LocalDateTime.now(), 40000.0, Activo.SI.name(), 5000.0));
+        Mockito.when(daoHospedaje.consultarPorId(Mockito.anyLong())).thenReturn(new DtoHospedaje(1L, "Hospedaje 1", 4, EstadoHospedaje.DIS.name(), LocalDateTime.now(), 40000.0, Activo.SI.name(), 5000.0));
 
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, daoHospedaje);
         // act
@@ -95,7 +94,7 @@ class ServicioCrearReservaTest {
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(1L);
 
         DaoHospedaje daoHospedaje = Mockito.mock(DaoHospedaje.class);
-        Mockito.when(daoHospedaje.consultarPorId(Mockito.anyLong())).thenReturn(new DtoHospedaje(1L, "Hospedaje 1", 4, EstadoHospedaje.DISP.name(), LocalDateTime.now(), 40000.0, Activo.SI.name(), 5000.0));
+        Mockito.when(daoHospedaje.consultarPorId(Mockito.anyLong())).thenReturn(new DtoHospedaje(1L, "Hospedaje 1", 4, EstadoHospedaje.DIS.name(), LocalDateTime.now(), 40000.0, Activo.SI.name(), 5000.0));
 
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, daoHospedaje);
 

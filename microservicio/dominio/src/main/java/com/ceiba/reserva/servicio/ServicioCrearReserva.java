@@ -38,7 +38,7 @@ public class ServicioCrearReserva {
     }
 
     private void validarExistenciaPrevia(Reserva reserva) {
-        boolean existe = repositorioReserva.existe(reserva.getId());
+        boolean existe = repositorioReserva.existePorHospedaje(reserva.getIdHospedaje());
         if(existe) {
             throw new ExcepcionDuplicidad(LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA);
         }
@@ -55,13 +55,13 @@ public class ServicioCrearReserva {
         return hospedaje;
     }
 
-    private Double calcularCostoReserva(Reserva reserva, DtoHospedaje hospedaje){
+    public static Double calcularCostoReserva(Reserva reserva, DtoHospedaje hospedaje){
         double costoHospedaje = 0;
         LocalDateTime fecha = reserva.getFechaInicio();
 
         for (int numDias = 0; numDias < reserva.getCantidadDias(); numDias++) {
             if(fecha.getDayOfWeek() == DayOfWeek.SATURDAY || fecha.getDayOfWeek() == DayOfWeek.SUNDAY){
-                costoHospedaje += hospedaje.getValorRecargoFinSemana();
+                costoHospedaje += (hospedaje.getValorNoche()+hospedaje.getValorRecargoFinSemana());
             }else{
                 costoHospedaje += hospedaje.getValorNoche();;
             }

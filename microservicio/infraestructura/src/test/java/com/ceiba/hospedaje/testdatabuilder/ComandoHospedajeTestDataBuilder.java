@@ -22,7 +22,7 @@ public class ComandoHospedajeTestDataBuilder {
     public ComandoHospedajeTestDataBuilder() {
         nombre = UUID.randomUUID().toString().substring(0,19);
         cantidadPersonas = 4;
-        estado = EstadoHospedaje.DISP;
+        estado = EstadoHospedaje.DIS;
         fecha = LocalDateTime.now();
         activo = Activo.SI;
         valorNoche = 40000.0;

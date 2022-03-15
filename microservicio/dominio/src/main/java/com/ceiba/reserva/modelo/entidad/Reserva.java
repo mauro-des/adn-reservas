@@ -2,6 +2,7 @@ package com.ceiba.reserva.modelo.entidad;
 
 
 import com.ceiba.Activo;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -52,6 +53,9 @@ public class Reserva {
         validarMenor(fechaInicio, fechaFin, LA_FECHA_INICIAL_DEBE_SER_MAYOR_A_LA_FINAL);
         validarMenor(LocalDateTime.now(), fechaInicio, LA_FECHA_INICIAL_DEBE_SER_MAYOR_IGUAL_A_LA_FECHA_ACTUAL);
 
+        if(fechaInicio.isEqual(fechaFin)){
+            throw new ExcepcionValorInvalido(LA_FECHA_INICIAL_DEBE_SER_MAYOR_A_LA_FINAL);
+        }
         this.id = id;
         this.idHospedaje = idHospedaje;
         this.nombreCliente = nombreCliente;

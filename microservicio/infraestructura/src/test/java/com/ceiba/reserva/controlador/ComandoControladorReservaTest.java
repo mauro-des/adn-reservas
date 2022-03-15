@@ -42,7 +42,7 @@ class ComandoControladorReservaTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoReserva)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
+                .andExpect(content().json("{'valor': 3}"));
     }
 
     @Test
@@ -72,7 +72,21 @@ class ComandoControladorReservaTest {
         mocMvc.perform(get("/reservas")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
+                .andExpect(jsonPath("$", hasSize(1)));
     }
+
+    @Test
+    @DisplayName("Debería marcar como pagada una reserva")
+    void deberiaMarcarComoPagadaUnaReserva() throws Exception{
+        // arrange
+        Long id = 1L;
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conId(id).build();
+        // act - assert
+        mocMvc.perform(put("/reservas/pagar/{id}",id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(reserva)))
+                .andExpect(status().isOk());
+    }
+
 
 }

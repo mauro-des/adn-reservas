@@ -30,13 +30,13 @@ public class HospedajeTest {
                 conValorNoche(40000.0).
                 conValorvalorRecargoFinSemana(5000.0).
                 conActivo(Activo.SI).
-                conEstado(EstadoHospedaje.DISP).
+                conEstado(EstadoHospedaje.DIS).
                 build();
 
         //assert
         assertEquals(1, hospedaje.getId());
         assertEquals("HOSPEDAJEPRUEBA", hospedaje.getNombre());
-        assertEquals("DISP", hospedaje.getEstado().name());
+        assertEquals("DIS", hospedaje.getEstado().name());
         assertEquals("SI", hospedaje.getActivo().name());
         assertEquals(40000.0, hospedaje.getValorNoche());
         assertEquals(5000.0, hospedaje.getValorRecargoFinSemana());

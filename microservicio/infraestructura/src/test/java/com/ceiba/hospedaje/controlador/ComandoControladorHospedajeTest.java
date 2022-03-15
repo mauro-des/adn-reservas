@@ -42,7 +42,7 @@ class ComandoControladorHospedajeTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoHospedaje)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 2}"));
+                .andExpect(content().json("{'valor': 3}"));
     }
 
     @Test
@@ -63,6 +63,7 @@ class ComandoControladorHospedajeTest {
     void deberiaEliminarUnHospedaje() throws Exception {
         // arrange
         Long id = 1L;
+
         // act - assert
         mocMvc.perform(delete("/hospedajes/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -72,7 +73,7 @@ class ComandoControladorHospedajeTest {
         mocMvc.perform(get("/hospedajes")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
+                .andExpect(jsonPath("$", hasSize(1)));
     }
 
 }

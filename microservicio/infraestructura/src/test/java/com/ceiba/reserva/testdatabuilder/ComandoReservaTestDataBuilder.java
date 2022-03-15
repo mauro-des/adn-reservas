@@ -64,6 +64,10 @@ public class ComandoReservaTestDataBuilder {
         return this;
     }
 
+    public ComandoReservaTestDataBuilder conId(Long id){
+        this.id = id;
+        return this;
+    }
 
     public ComandoReserva build() {
         return new ComandoReserva(id, idHospedaje,nombreCliente, identificacionCliente, fechaInicio, fechaFin, cantidadPersonas, cantidadDias, activo, estado, valorReserva);
